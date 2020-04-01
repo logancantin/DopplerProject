@@ -13,6 +13,7 @@ function shortTimeFourier(soundData, n, Fs)
     segments_fft = fft(segments, n, 2);
     
     % Calculating magnitude (row is one segment)
+    % Column --> Frequency, Rows-> time
     segments_magnitude = sqrt(real(segments_fft) .^ 2 + imag(segments_fft) .^ 2);
     
     % Generating associated frequencies
@@ -28,18 +29,21 @@ function shortTimeFourier(soundData, n, Fs)
     % Interpolated time
     frequencies_interp = [1:nyquist];
 
-    size(frequencies)
-    size(segments_magnitude)
+    times_interp = [1:n];
 
     % Interpolated spectrogram data
-    segments_magnitude_interpolated = interp1(frequencies, segments_magnitude', frequencies_interp);
+    segments_magnitude_interpolated = interp1(frequencies, segments_magnitude', frequencies_interp, 'cubic')';
 
+    subplot(2, 1, 1);
     imagesc(times, frequencies, segments_magnitude')
     set(gca, 'YDir', 'normal')
 
-    figure(2)
-    imagesc(times, frequencies, segments_magnitude')
-
+    subplot(2, 1, 2);
+    %find the max frequency for each time
+    [_, max_frequency_interp] = max(segments_magnitude_interpolated, [], 2);
+    %hold on
+    plot(times, frequencies_interp(max_frequency_interp), 'r*')
+   % hold off
 
     
 
