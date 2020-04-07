@@ -19,7 +19,7 @@ pkg load signal;
     rsaudio = resample(audioData, 1, 8);
     Fs = Fs / 8;
 
-    shortTimeFourier(rsaudio, 512, Fs)
+    shortTimeFourier(rsaudio, 256, Fs)
 %endfor
 
 

@@ -28,22 +28,29 @@ function shortTimeFourier(soundData, n, Fs)
 
     % Interpolated time
     frequencies_interp = [1:nyquist];
-
     times_interp = [1:n];
 
     % Interpolated spectrogram data
     segments_magnitude_interpolated = interp1(frequencies, segments_magnitude', frequencies_interp, 'cubic')';
 
-    subplot(2, 1, 1);
+    %subplot(2, 1, 1);
     imagesc(times, frequencies, segments_magnitude')
-    set(gca, 'YDir', 'normal')
 
-    subplot(2, 1, 2);
+
+    title("The Frequency of a 900Hz Tone")
+
+
+
+    set(gca, 'YDir', 'normal')
+    xlabel("Time (seconds)")
+    ylabel("Frequency (Hz)")
+
+    %subplot(2, 1, 2);
     %find the max frequency for each time
     [_, max_frequency_interp] = max(segments_magnitude_interpolated, [], 2);
-    %hold on
-    plot(times, frequencies_interp(max_frequency_interp), 'r*')
-   % hold off
+
+    hold on;
+    plot(times, frequencies_interp(max_frequency_interp), 'rx', 3)
 
     
 
