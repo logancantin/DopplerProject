@@ -1,14 +1,12 @@
-pkg load signal;
+%Performs a short time fourier analysis on the given file. Must be a .wav file
+%Downsamples to 6000Hz. This script is only useful for analyzing frequencies under 3000Hz.
 
-%files = glob('SoundData/*.wav');
-%for i=1:numel(files)
-    %[~, name] = fileparts (files{i});
-    %name
+function frequencyAnalyzer(path)
 
-    %figure(i)
+    pkg load signal;
+
     % Takes the audio data from the wav file
-    [audioData, Fs] = audioread("SoundData/60-900.wav");
-    %['SoundData/' name  '.wav']);
+    [audioData, Fs] = audioread("SoundData/90-300.wav");
 
     %Only taking the left channel
     audioData = audioData(:, 1);
@@ -19,9 +17,9 @@ pkg load signal;
     rsaudio = resample(audioData, 1, 8);
     Fs = Fs / 8;
 
+    %Performing the short time fourier transform
     shortTimeFourier(rsaudio, 256, Fs)
-%endfor
 
-
-
-waitfor(figure(1))
+    %Prevent the closing of the figure until the user is done looking at it
+    waitfor(figure(1))
+endfunction

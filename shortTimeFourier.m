@@ -1,3 +1,6 @@
+%Performs a short time fourier transform. Results are then used to display the frequency with the
+%Greatest magnitude at each sample
+
 function shortTimeFourier(soundData, n, Fs)
 
     % Generating the matrix of indices
@@ -33,24 +36,24 @@ function shortTimeFourier(soundData, n, Fs)
     % Interpolated spectrogram data
     segments_magnitude_interpolated = interp1(frequencies, segments_magnitude', frequencies_interp, 'cubic')';
 
-    %subplot(2, 1, 1);
-    imagesc(times, frequencies, segments_magnitude')
-
-
-    title("The Frequency of a 900Hz Tone")
-
-
-
-    set(gca, 'YDir', 'normal')
-    xlabel("Time (seconds)")
-    ylabel("Frequency (Hz)")
-
-    %subplot(2, 1, 2);
-    %find the max frequency for each time
+    %Getting the max frequency at each time sample
     [_, max_frequency_interp] = max(segments_magnitude_interpolated, [], 2);
 
+    %Plotting the frequency with the greatest magnitude for each sample
+    %This is where you have to shift the values so that the passing of the car lines up with 0s
+    plot(times - 3.75, frequencies_interp(max_frequency_interp), 'rx', 3)
+
     hold on;
-    plot(times, frequencies_interp(max_frequency_interp), 'rx', 3)
+
+    %Plotting the theoretical frequency curve, 2.5 seconds before and after the car passes
+    t2 = [-2.5 : 1 / Fs : 2.5];
+    plot(t2, perceivedFrequency(300, 90/3.6, 2, t2));
+
+    hold off;
+
+    %Labelling the axes
+    xlabel("Time (s)")
+    ylabel("Frequency (Hz)")
 
     
 
