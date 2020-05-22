@@ -17,7 +17,7 @@ All of the information gathered through this project has been compiled into a la
 The sound files which I recorded and used for my analysis are available for your use, should you wish to try the analysis yourself but you don't have the means to actuall carry out the experiment. In addition, all of the full resolution graps of my results are available, as well as amalgamated versions. *Note: The naming scheme works as follows: xx-yyy.(png|wav), where xx represents the speed of the vehicle in km/h and yyy represents the frequency, in Hz.*
 
 ## Tools
-I have also included the scripts for you to be able to run the analysis scripts yourself. Please note that this is not for beginners, and I recommend that you only attempt this if you are an experienced programmer and are familiar with Octave/Matlab. Instructions for running the script are located in (frequencyAnalyzer.m)[scripts/frequencyAnalyzer.m]. **Note: the script is not very user-friendly right now. Please be patient as I adapt it for public use.**
+I have also included the scripts for you to be able to run the analysis scripts yourself. Please note that this is not for beginners, and I recommend that you only attempt this if you are an experienced programmer and are familiar with Octave/Matlab. Instructions for running the script are located in [frequencyAnalyzer.m](scripts/frequencyAnalyzer.m). **Note: the script is not very user-friendly right now. Please be patient as I adapt it for public use.**
 
 ## Additional Resources
 I will post a list of the resources that I used in the coming days. Stay tuned!
