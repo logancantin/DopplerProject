@@ -1,7 +1,11 @@
 %Performs a short time fourier transform. Results are then used to display the frequency with the
 %Greatest magnitude at each sample
 
-function shortTimeFourier(soundData, n, Fs)
+%NOTE: Manual adjustment required. Scroll down to the comment that says `%ATTENTION:` to find the parameter 
+
+%Sound data is a vector of raw sound data points, n is the window size, Fs is the sampling frequency,
+%frequency is the frequency emitted by the source, and speed is the speed of the source in m/s
+function shortTimeFourier(soundData, n, Fs, frequency, speed)
 
     % Generating the matrix of indices
     segmentStartPointsIndices = [1:n:length(soundData) - n];
@@ -40,14 +44,15 @@ function shortTimeFourier(soundData, n, Fs)
     [_, max_frequency_interp] = max(segments_magnitude_interpolated, [], 2);
 
     %Plotting the frequency with the greatest magnitude for each sample
-    %This is where you have to shift the values so that the passing of the car lines up with 0s
-    plot(times - 3.75, frequencies_interp(max_frequency_interp), 'rx', 3)
+    %ATTENTION: Change the shift variable to shift the values so that the passing of the car lines up with 0s
+    shift = 0
+    plot(times - shift, frequencies_interp(max_frequency_interp), 'rx', 3)
 
     hold on;
 
     %Plotting the theoretical frequency curve, 2.5 seconds before and after the car passes
     t2 = [-2.5 : 1 / Fs : 2.5];
-    plot(t2, perceivedFrequency(300, 90/3.6, 2, t2));
+    plot(t2, perceivedFrequency(frequency, speed, 2, t2));
 
     hold off;
 
