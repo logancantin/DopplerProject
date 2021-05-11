@@ -14,7 +14,7 @@ At its core, the purpose of this project is to assuage the curiosity I had about
 All of the information gathered through this project has been compiled into a lab report. I chose to do this to organize my information in a structured and easy to read document. The main Lab Report will allow you to replicate this experiment at home if you want. Regardless, the information it contains will give you a thorough understanding of the Doppler effect and why a passing car sounds the way it does. In addition, the Analysis section takes the new tools that we derived for the car and extrapolate to make connections to supersonic travel, sonic booms, and more. More detailed information and the steps I used to derive the model are available in the Appendices. The report is available [here](Report/doppler.pdf).
 
 ## Presentation
-[Here](https://docs.google.com/presentation/d/1yQBC0xUWiHb9GxYwowUVG13fetLh4yFuySvtZc7AiD8/edit?usp=sharing) is the Google Docs presentation that I used to present this to my class.
+[Here](https://github.com/logancantin/DopplerProject/blob/master/DopplerEffectPresentation.pdf) is the Google Docs presentation that I used to present this to my class.
 
 ## Files
 The sound files which I recorded and used for my analysis are available [here](SoundData/) for your use, should you wish to try the analysis yourself but you don't have the means to actuall carry out the experiment. In addition, all of the full resolution graps of my results are available [here](Images/), as well as amalgamated versions. *Note: The naming scheme works as follows: xx-yyy.(png|wav), where xx represents the speed of the vehicle in km/h and yyy represents the frequency, in Hz.*
